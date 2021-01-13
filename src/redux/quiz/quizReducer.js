@@ -1,4 +1,4 @@
-import { FETCH_QUIZ_REQUEST, FETCH_QUIZ_FAILURE, FETCH_QUIZ_SUCCESS } from './QUIZTypes';
+import { FETCH_QUIZ_REQUEST, FETCH_QUIZ_FAILURE, FETCH_QUIZ_SUCCESS } from './quizTypes';
 
 const initialState = {
   loading: null,
@@ -16,12 +16,14 @@ const questionReducer = (state=initialState, action) => {
     }
 
     case FETCH_QUIZ_SUCCESS: return {
+      ...state,
       loading: false,
       data: action.payload,
       error: null
     }
 
     case FETCH_QUIZ_FAILURE: return {
+      ...state,
       loading: false,
       data: null,
       error: action.payload
