@@ -4,8 +4,8 @@ const initialState = {
   loading: null,
   data: null,
   error: null,
-  tags: ['Linux', 'bash', 'cmd', 'Networking', 'Cloud', 'Docker', 'Kubernetes', 'DevOps', 'JavaScript', 'Python', 'PHP'],
-  selectedTag: null
+  tags: ['Linux', 'BASH', 'CMD', 'Networking', 'Cloud', 'Docker', 'Kubernetes', 'DevOps', 'JavaScript', 'Python', 'PHP'],
+  selectedTag: 'Linux'
 }
 
 const questionReducer = (state=initialState, action) => {

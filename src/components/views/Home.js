@@ -4,12 +4,12 @@ import TagButton from '../layouts/TagButton';
 const Home = ({tags}) => {
 
   const tagsButton = tags.map(tag => (
-    <TagButton tag={tag} />
+    <TagButton key={tag} tag={tag} />
   ))
 
   return (
     <div className="container h-screen flex flex-col justify-center">
-      <div className="text-xl sm:text-2xl lg:text-3xl">hello traveler...</div>
+      <div className="text-xl sm:text-2xl lg:text-3xl">hello traveller...</div>
       <div className="text-3xl sm:text-4xl lg:text-5xl">I challenge you to answer my questions!</div>
       <div className="flex flex-wrap justify-center pt-4">
         {tagsButton}
@@ -33,5 +33,4 @@ const mapStateToProps = (state) => {
   }
 }
 
- 
 export default connect(mapStateToProps)(Home);
