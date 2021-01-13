@@ -1,9 +1,11 @@
-import { FETCH_QUIZ_REQUEST, FETCH_QUIZ_FAILURE, FETCH_QUIZ_SUCCESS } from './quizTypes';
+import { FETCH_QUIZ_REQUEST, FETCH_QUIZ_FAILURE, FETCH_QUIZ_SUCCESS, SELECT_TAG } from './quizTypes';
 
 const initialState = {
   loading: null,
   data: null,
-  error: null
+  error: null,
+  tags: ['Linux', 'bash', 'cmd', 'Networking', 'Cloud', 'Docker', 'Kubernetes', 'DevOps', 'JavaScript', 'Python', 'PHP'],
+  selectedTag: null
 }
 
 const questionReducer = (state=initialState, action) => {
@@ -27,6 +29,11 @@ const questionReducer = (state=initialState, action) => {
       loading: false,
       data: null,
       error: action.payload
+    }
+
+    case SELECT_TAG: return {
+      ...state,
+      selectedTag: action.payload
     }
 
     default: return state

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchQuiz } from '../redux';
+import { fetchQuiz } from '../../redux';
 
 const Question = ({quiz, fetchQuiz}) => {
   useEffect(() => {

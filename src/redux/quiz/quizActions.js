@@ -1,4 +1,4 @@
-import { FETCH_QUIZ_REQUEST, FETCH_QUIZ_FAILURE, FETCH_QUIZ_SUCCESS } from './quizTypes';
+import { FETCH_QUIZ_REQUEST, FETCH_QUIZ_FAILURE, FETCH_QUIZ_SUCCESS, SELECT_TAG } from './quizTypes';
 import axios from 'axios';
 
 const fetchQuizRequest = () => {
@@ -42,5 +42,12 @@ export const fetchQuiz = (tags="bash") => {
       const error = err.message;
       dispatch(fetchQuizFailure(error))
     }
+  }
+}
+
+export const selectTag = (tag) => {
+  return {
+    type: SELECT_TAG,
+    payload: tag
   }
 }
