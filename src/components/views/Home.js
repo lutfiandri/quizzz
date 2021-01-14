@@ -1,7 +1,15 @@
 import { connect } from 'react-redux';
 import TagButton from '../layouts/TagButton';
+import { useHistory } from 'react-router-dom';
+import { fetchQuiz } from '../../redux';
 
-const Home = ({tags}) => {
+const Home = ({tags, selectedTag, fetchQuiz}) => {
+  const history = useHistory();
+
+  const handleAccept = () => {
+    fetchQuiz(selectedTag);
+    history.push('/question/0');
+  }
 
   const tagsButton = tags.map(tag => (
     <TagButton key={tag} tag={tag} />
@@ -14,7 +22,7 @@ const Home = ({tags}) => {
       <div className="flex flex-wrap justify-center pt-4">
         {tagsButton}
       </div>
-      <div className="text-center text-gray-800 hover:text-white bg-white hover:bg-transparent transition duration-100 ease-in cursor-pointer rounded-md mt-4 px-6 py-3 text-2xl font-medium border-4 border-white">
+      <div onClick={handleAccept} className="text-center text-gray-800 hover:text-white bg-white hover:bg-transparent transition duration-100 ease-in cursor-pointer rounded-md mt-4 px-6 py-3 text-2xl font-medium border-4 border-white">
         accept challenge!
       </div>
       <div className="flex flex-row mt-3 justify-end">
@@ -29,8 +37,15 @@ const Home = ({tags}) => {
 
 const mapStateToProps = (state) => {
   return {
-    tags: state.quiz.tags
+    tags: state.quiz.tags,
+    selectedTag: state.quiz.selectedTag
   }
 }
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchQuiz: (tag) => dispatch(fetchQuiz(tag))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

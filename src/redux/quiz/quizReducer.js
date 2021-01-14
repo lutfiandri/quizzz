@@ -4,7 +4,7 @@ const initialState = {
   loading: null,
   data: null,
   error: null,
-  tags: ['Linux', 'BASH', 'CMD', 'Networking', 'Cloud', 'Docker', 'Kubernetes', 'DevOps', 'JavaScript', 'Python', 'PHP'],
+  tags: ['Linux', 'BASH', 'Docker', 'Kubernetes', 'DevOps', 'JavaScript', 'PHP'],
   selectedTag: 'Linux'
 }
 
