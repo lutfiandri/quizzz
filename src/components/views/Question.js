@@ -85,7 +85,7 @@ const Question = ({quiz, loading, addScore}) => {
   }
 
   return (
-    <div className="min-h-screen py-2 border border-white container flex flex-col justify-center items-center">
+    <div className="min-h-screen py-2 border container flex flex-col justify-center items-center">
     {
       loading ? (
         <div className="text-xl">prepare your brain...</div>
